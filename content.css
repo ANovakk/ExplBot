@@ -1,0 +1,16 @@
+.explbot-button {
+  position: absolute;
+  background: #ffffff;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 5px 10px;
+  cursor: pointer;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+  z-index: 10000;
+  font-size: 14px;
+  display: none;
+}
+
+.explbot-button:hover {
+  background: #f5f5f5;
+} 
