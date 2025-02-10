@@ -23,7 +23,11 @@ document.addEventListener('mousedown', function(e) {
     }
 });
 
-button.addEventListener('click', function() {
+button.addEventListener('click', async function() {
     const selectedText = window.getSelection().toString().trim();
-    console.log('Selected text:', selectedText);
+    
+    await chrome.runtime.sendMessage({
+        action: "openSidePanel",
+        text: selectedText
+    });
 }); 
