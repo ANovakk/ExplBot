@@ -18,6 +18,9 @@ ExplBot is a Chrome extension that helps users analyze and understand text conte
 3. View the analysis in the side panel that opens
 4. Select new text and click the button again for more analysis
 
+![alt text](images/how-to-use1.png)
+![alt text](images/how-to-use2.png)
+
 ## Installation
 
 1. Clone this repository
