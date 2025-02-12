@@ -19,6 +19,8 @@ async function analyzeText(text) {
                         - For lists, start each item with "- " (dash and space)
                         - Each list item should end with ":" followed by explanation on the same line
                         - Do not use list format in Relevant sources and references
+                        - Use ## for section titles (Key points, Important concepts, etc.)
+                        - Use ** only for emphasizing important terms within explanations, not for titles
                         
                         Text: ${text}`
                     }]
