@@ -14,6 +14,11 @@ async function analyzeText(text) {
                         1. Key points and their explanations
                         2. Important concepts explained
                         3. Relevant sources and references if applicable
+
+                        Format requirements:
+                        - For lists, start each item with "- " (dash and space)
+                        - Each list item should end with ":" followed by explanation on the same line
+                        - Do not use list format in Relevant sources and references
                         
                         Text: ${text}`
                     }]
@@ -36,9 +41,10 @@ async function analyzeText(text) {
 
 function formatText(text) {
     formatted_text = text
-        .replace(/##(.*?)(?:\n|$)/g, '<span style="font-weight: bold; font-size: 1.5em;">$1</span>\n')
+        .replace(/##(.*?)(?:\n|$)/g, '<span class="title" style="font-weight: bold; font-size: 1.5em;">$1</span>\n')
         .replace(/\*\*(.*?)\*\*/g, '<span style="font-weight: bold; font-size: 1.2em;">$1<br></span>')
-        .replace(/^\*\s*(.+)$/gm, '• $1')
+        .replace(/^- (.*?)$/gm, '• $1')
+        .replace(/\[(.*?)\]\((https?:\/\/[^\s)]+)\)/g, '<a href="$2" target="_blank">$1</a>')
         .replace(/\n/g, '<br>');
     return formatted_text;
 }
