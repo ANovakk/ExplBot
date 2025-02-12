@@ -38,6 +38,7 @@ function formatText(text) {
     formatted_text = text
         .replace(/##(.*?)(?:\n|$)/g, '<span style="font-weight: bold; font-size: 1.5em;">$1</span>\n')
         .replace(/\*\*(.*?)\*\*/g, '<span style="font-weight: bold; font-size: 1.2em;">$1<br></span>')
+        .replace(/^\*\s*(.+)$/gm, '• $1')
         .replace(/\n/g, '<br>');
     return formatted_text;
 }
