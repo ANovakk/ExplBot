@@ -34,15 +34,21 @@ async function analyzeText(text) {
     }
 }
 
+function formatText(text) {
+    return text
+        .replace(/\n/g, '<br>')
+        .replace(/\*\*(.*?)\*\*/g, '<span style="font-weight: bold; font-size: 1.2em;">$1</span>');
+}
+
 function displayResponse(response) {
     const gptResponse = document.getElementById('gpt-response');
-    gptResponse.innerHTML = response.replace(/\n/g, '<br>');
+    gptResponse.innerHTML = formatText(response);
 }
 
 chrome.storage.local.get(['selectedText'], async function(result) {
     if (result.selectedText) {
         const selectedTextElement = document.getElementById('selected-text');
-        selectedTextElement.textContent = result.selectedText;
+        selectedTextElement.innerHTML = formatText(result.selectedText);
 
         const analysis = await analyzeText(result.selectedText);
         displayResponse(analysis);
