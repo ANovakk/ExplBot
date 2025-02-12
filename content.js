@@ -30,6 +30,8 @@ button.addEventListener('click', async function() {
         /\*\*(.*?)\*\*/g, 
         '<span style="font-weight: bold; font-size: 1.2em;">$1</span>'
     );
+
+    //console.log(formattedText);
     
     await chrome.runtime.sendMessage({
         action: "openSidePanel",

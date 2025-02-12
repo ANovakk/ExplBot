@@ -47,12 +47,15 @@ function displayResponse(response) {
     gptResponse.innerHTML = formatText(response);
 }
 
-chrome.storage.local.get(['selectedText'], async function(result) {
-    if (result.selectedText) {
+chrome.runtime.onMessage.addListener(async (message, sender, sendResponse) => {
+    if (message.action === "updateSidePanel") {
         const selectedTextElement = document.getElementById('selected-text');
-        selectedTextElement.innerHTML = formatText(result.selectedText);
-
-        const analysis = await analyzeText(result.selectedText);
+        selectedTextElement.innerHTML = formatText(message.text);
+        
+        const gptResponse = document.getElementById('gpt-response');
+        gptResponse.innerHTML = '<div class="loading">Analyzing text...</div>';
+        
+        const analysis = await analyzeText(message.text);
         displayResponse(analysis);
     }
 }); 
