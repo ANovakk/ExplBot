@@ -26,7 +26,6 @@ document.addEventListener('mousedown', function(e) {
 button.addEventListener('click', async function() {
     const selectedText = window.getSelection().toString().trim();
     
-    // Форматируем текст, заменяя **text** на HTML с жирным шрифтом
     const formattedText = selectedText.replace(
         /\*\*(.*?)\*\*/g, 
         '<span style="font-weight: bold; font-size: 1.2em;">$1</span>'
@@ -35,6 +34,6 @@ button.addEventListener('click', async function() {
     await chrome.runtime.sendMessage({
         action: "openSidePanel",
         text: formattedText,
-        isHTML: true  // Добавляем флаг, что текст содержит HTML
+        isHTML: true
     });
 }); 
