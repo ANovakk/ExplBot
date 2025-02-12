@@ -1,6 +1,6 @@
 const button = document.createElement('button');
 button.className = 'explbot-button';
-button.textContent = 'ExplBot';
+button.textContent = 'Explain me';
 document.body.appendChild(button);
 
 document.addEventListener('mouseup', function(e) {
